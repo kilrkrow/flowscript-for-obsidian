@@ -1,0 +1,24 @@
+{
+  "name": "flowscript-diagrams",
+  "version": "0.1.0",
+  "description": "Render flow code blocks as inline SVG flowcharts using FlowScript",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc --noEmit --skipLibCheck && node esbuild.config.mjs production"
+  },
+  "keywords": ["obsidian", "flowchart", "diagram", "svg"],
+  "author": "kilrkrow",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "builtin-modules": "^3.3.0",
+    "esbuild": "^0.25.0",
+    "obsidian": "latest",
+    "tslib": "^2.6.0",
+    "typescript": "^5.8.0"
+  },
+  "dependencies": {
+    "@kilrkrow/flowscript": "^0.1.0"
+  }
+}
