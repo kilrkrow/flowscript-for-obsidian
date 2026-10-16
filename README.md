@@ -1,62 +1,51 @@
-# FlowScript Diagrams for Obsidian
+# FlowScript for Obsidian
 
-Render fenced ` ```flow ` code blocks as inline SVG flowcharts inside any Obsidian note, powered by [FlowScript](https://github.com/kilrkrow/flowscript).
+Render ` ```flow ` code blocks as inline SVG flowcharts inside any Obsidian note.
 
-## Usage
+FlowScript code blocks in Obsidian normally display as raw text. This plugin runs them through the FlowScript compiler and replaces the block with an inline SVG — no copy-paste, no external app, no internet required.
 
-Create a fenced code block with the language set to `flow`:
+## What it does
 
-~~~markdown
+- **Inline rendering** — every ` ```flow ` block in a note becomes a live SVG diagram in reading and preview modes
+- **Full DSL support** — decisions, branches, loops and swimlanes all work exactly as in the [FlowScript editor](https://flowscript.foxanddoveconsulting.com/editor.html)
+- **Local compilation** — the FlowScript engine runs entirely inside Obsidian; no outbound requests
+- **Auto-update** — editing the code block and switching back to reading mode re-renders the diagram instantly
+- **Lightweight** — a single bundled JavaScript file; no background processes
+
+## Quick start
+
+1. Download `main.js`, `manifest.json` and `styles.css` from the [latest release](https://github.com/kilrkrow/flowscript-for-obsidian/releases)
+2. Copy them into `<vault>/.obsidian/plugins/flowscript-diagrams/`
+3. Enable **FlowScript Diagrams** in Obsidian Settings > Community plugins
+
+Or install via [BRAT](https://github.com/TfTHacker/obsidian42-brat): add `kilrkrow/flowscript-for-obsidian`.
+
+Then write a flow block in any note:
+
+````
 ```flow
-#start User Visits Page
-  Enter Email
-  #decision Valid?
-    -> yes: #end Welcome
-    -> no: Show Error
+#start User Opens Note
+  Edit .flow Block
+  #decision Looks Right?
+    -> yes: Done
+    -> no: Edit Again
 ```
-~~~
+````
 
-The block renders as an inline SVG diagram in both Live Preview and Reading view.
+## Install via BRAT
 
-## Syntax
-
-FlowScript uses an indentation-driven DSL. A few key constructs:
-
-| Syntax | Meaning |
-|---|---|
-| `#start Label` | Start node (rounded rect) |
-| `#end Label` | End node (rounded rect) |
-| `#decision Label` | Decision diamond |
-| `Plain text` | Process rectangle |
-| `#subprocess`, `#io`, `#data`, `#note` | Additional shapes |
-| `-> yes: Target` | Named branch |
-| `~> Label` | Dashed / retry edge |
-| `#group Name` | Logical grouping |
-| `#lane Name` | Swimlane column |
-| `@direction LR` | Flow direction (TB, BT, LR, RL) |
-| `@theme clean-dark` | Theme override per diagram |
-
-Full syntax reference: [kilrkrow/flowscript](https://github.com/kilrkrow/flowscript#syntax-reference)
-
-## Settings
-
-| Setting | Default | Description |
-|---|---|---|
-| Theme | Clean (light) | `Clean (light)` or `Clean (dark)` |
-| Transparent background | Off | Removes the diagram background so it blends with your vault theme |
-
-## Installation
-
-### Manual
-
-1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](../../releases/latest)
-2. Copy them to `.obsidian/plugins/flowscript-diagrams/` in your vault
-3. Enable **FlowScript Diagrams** in Settings → Community Plugins
-
-### BRAT (beta)
-
-Add `kilrkrow/flowscript-for-obsidian` in [BRAT](https://github.com/TfTHacker/obsidian42-brat).
+1. Install BRAT from Community plugins
+2. In BRAT settings, choose **Add Beta Plugin**
+3. Enter `kilrkrow/flowscript-for-obsidian`
 
 ## License
 
 [MIT](LICENSE)
+
+## Feedback
+
+Questions, ideas and bug reports are welcome in [Issues](https://github.com/kilrkrow/flowscript-for-obsidian/issues).
+
+---
+
+Built by Guy Schamp · [Fox & Dove](https://foxanddoveconsulting.com) · more tools at [github.com/kilrkrow](https://github.com/kilrkrow)
