@@ -2,6 +2,8 @@
 
 Render ` ```flow ` code blocks as inline SVG flowcharts inside any Obsidian note.
 
+![FlowScript for Obsidian rendering a security incident flowchart as an inline SVG diagram](docs/screenshots/hero.png)
+
 FlowScript code blocks in Obsidian normally display as raw text. This plugin runs them through the FlowScript compiler and replaces the block with an inline SVG — no copy-paste, no external app, no internet required.
 
 ## What it does
